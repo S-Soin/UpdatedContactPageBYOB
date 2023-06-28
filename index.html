@@ -178,15 +178,15 @@
             <div style="display: flex;">
                 <div>
                     Select Consultant<br><br>
-                    <input id="00NDn00000aHnEm" placeholder="--NONE--" type="search" autocomplete="off" role="combobox" name="00NDn00000aHnEm"
-                    title="consultant" list="options" style="    width: max-content;
+                    <input class="myPicklist" onchange="showData()" id="00NDn00000aHnEm" placeholder="--NONE--" type="search" autocomplete="off" role="combobox" name="00NDn00000aHnEm"
+                    title="consultant" list="consultants" style="    width: max-content;
                     height: 40px;
                     padding: 0px 30px 0px 125px;
                     border: 20px;
                     font-size: 18px;
                     border-radius: 4px;
                     ">
-                    <datalist id="options" role="listbox">
+                    <datalist id="consultants" role="listbox">
 
                         <option value="">--None--</option>
                         <option value="Consultant P">  
@@ -234,6 +234,10 @@
                     </div>
                     <div id="anotherField" style="display: none;width: 37%; margin-top: 1.8%;margin-left: 2%;">
                         Referral Name:<br><br><input  id="00NDn00000aHzoU" maxlength="50" name="00NDn00000aHzoU" size="20" type="text" /><br>
+                    </div>
+
+                    <div style="display: none;">Calendar:
+                        <input class="myInput"  id="00NDn00000e79Tg" maxlength="200" name="00NDn00000e79Tg" size="20" type="text" /><br>
                     </div>
             </div>
         </div>   
@@ -455,7 +459,23 @@
             }
     
         </script>
-    
+  <script>
+    function showData() {
+      var picklist = document.querySelector(".myPicklist");
+      var inputField = document.querySelector(".myInput");
+      var selectedValue = picklist.value;
+
+      if (selectedValue === "Consultant P") {
+        inputField.value = "https://calendar.app.google/3J7czeXFPbyh4N7L8";
+      } else if (selectedValue === "Consultant Q") {
+        inputField.value = "https://calendly.com/sarangsoin416/30min";
+      } else if (selectedValue === "Consultant R") {
+        inputField.value = "https://calendly.com/sarangsoin416/30min";
+      } else {
+        inputField.value = "https://calendar.app.google/3J7czeXFPbyh4N7L8";
+      }
+    }
+  </script>
 
 </body>
 </html>
